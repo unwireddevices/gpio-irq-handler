@@ -49,9 +49,11 @@ bool init_handler(int gpio)
 	if(write(fd, buf, strlen(buf) + 1) < 0)
 	{
 		perror("write");
+		close(fd);
 		return false;
 	}
 
+	close(fd);
 	return true;
 }
 
@@ -74,9 +76,11 @@ bool remove_handler(int gpio)
 	if(write(fd, buf, strlen(buf) + 1) < 0)
 	{
 		perror("write");
+		close(fd);
 		return false;
 	}
 
+	close(fd);
 	return true;
 }
 
